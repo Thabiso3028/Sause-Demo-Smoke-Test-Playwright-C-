@@ -18,7 +18,6 @@ public class CheckoutTests : BaseTest
         await inventoryPage.AddItemToCartAsync("Sauce Labs Bike Light");
 
         Assert.That(await inventoryPage.GetCartCountAsync(), Is.EqualTo(2));
-
         await inventoryPage.GoToCartAsync();
         await Expect(Page).ToHaveURLAsync("**/cart.html");
         await Expect(Page.GetByText("Sauce Labs Backpack")).ToBeVisibleAsync();
