@@ -1,10 +1,11 @@
 using SauceDemoTests.Pages;
+using NUnit.Framework;
 
-namespace SauceDemoTests.Tests;
+using SauceDemoTests;
 
 public class CheckoutTests : BaseTest
 {
-
+    [Tests]
     public async Task User_Can_Complete_Checkout_Flow()
     {
         var loginPage = new LoginPage(Page);
@@ -23,6 +24,7 @@ public class CheckoutTests : BaseTest
         await Expect(Page.GetByText("Sauce Labs Backpack")).ToBeVisibleAsync();
     }
 
+    [Tests]
     public async Task Locked_User_Shows_Error()
     {
         var loginPage = new LoginPage(Page);
