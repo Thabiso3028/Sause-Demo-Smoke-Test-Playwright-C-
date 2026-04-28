@@ -27,5 +27,5 @@ public class InventoryPage
 
     public async Task GoToCartAsync() => await _cartLink.ClickAsync();
     public async Task ExpectOnInventoryPage() =>
-        await Expect(_page).ToHaveURLAsync("**/inventory.html");
+        await Expect(_page).ToHaveURLAsync("https://www.saucedemo.com/inventory.html");
 }

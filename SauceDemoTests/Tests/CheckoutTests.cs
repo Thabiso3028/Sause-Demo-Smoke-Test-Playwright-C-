@@ -1,11 +1,12 @@
 using SauceDemoTests.Pages;
 using NUnit.Framework;
+using System.Text.RegularExpressions;
 
 using SauceDemoTests;
 
 public class CheckoutTests : BaseTest
 {
-    [Tests]
+    [Test]
     public async Task User_Can_Complete_Checkout_Flow()
     {
         var loginPage = new LoginPage(Page);
@@ -20,11 +21,11 @@ public class CheckoutTests : BaseTest
 
         Assert.That(await inventoryPage.GetCartCountAsync(), Is.EqualTo(2));
         await inventoryPage.GoToCartAsync();
-        await Expect(Page).ToHaveURLAsync("**/cart.html");
+        await Expect(Page).ToHaveURLAsync(new Regex(".*cart\\.html"));
         await Expect(Page.GetByText("Sauce Labs Backpack")).ToBeVisibleAsync();
     }
 
-    [Tests]
+    [Test]
     public async Task Locked_User_Shows_Error()
     {
         var loginPage = new LoginPage(Page);
