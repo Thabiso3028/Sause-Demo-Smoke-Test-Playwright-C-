@@ -2,3 +2,4 @@ bin/
 obj/
 .playwright/
 node_modules/
+test-results/
